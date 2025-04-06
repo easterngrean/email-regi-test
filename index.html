@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Email Registration</title>
+</head>
+<body>
+  <h2>Register Your Email</h2>
+  <form id="email-form">
+    <input type="text" id="name" name="name" placeholder="Your name" required><br>
+    <input type="email" id="email" name="email" placeholder="Your email" required><br>
+    <button type="submit">Register</button>
+  </form>
+
+  <p id="status"></p>
+
+  <script>
+    const form = document.getElementById('email-form');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const formData = new FormData();
+      formData.append("name", document.getElementById('name').value);
+      formData.append("email", document.getElementById('email').value);
+
+      fetch("https://script.google.com/macros/s/AKfycbzkMMYTzrytMf4GSVcMRymxbg5RV81vxOpvyjvCmyvJRhe4-hu7MGpYlcKU4cJlsXHH/exec", {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('status').innerText = data;
+        form.reset();
+      })
+      .catch(err => {
+        document.getElementById('status').innerText = "Error occurred: " + err.message;
+      });
+    });
+  </script>
+</body>
+</html>
