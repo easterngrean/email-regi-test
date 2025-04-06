@@ -1,16 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Email Registration</title>
 </head>
 <body>
   <h2>Register Your Email</h2>
 
-  <form action="https://script.google.com/macros/s/AKfycbzkMMYTzrytMf4GSVcMRymxbg5RV81vxOpvyjvCmyvJRhe4-hu7MGpYlcKU4cJlsXHH/exec" method="POST">
-  <input type="text" name="name" placeholder="Your name" required><br>
-  <input type="email" name="email" placeholder="Your email" required><br>
-  <button type="submit">Register</button>
-</form>
-  
+  <form action="YOUR_SCRIPT_WEB_APP_URL" method="post">
+    <label>
+      Name:
+      <input type="text" name="name" required>
+    </label><br><br>
+
+    <label>
+      Email:
+      <input type="email" name="email" required>
+    </label><br><br>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <p>After you register, your information will be saved to our database. Thank you!</p>
 </body>
 </html>
